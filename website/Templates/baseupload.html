@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name ="viewport" content="width=device-width, initial-scale=1">
+        <title>Garbage Sorter</title>
+        <!-- Bootstrap CSS -->
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+        <style>
+            body {
+                background-color: white;
+                color: black; /* Ensures text is visible on a black background */
+                font-family: 'Arial', sans-serif; /* Choose a clean, readable font */
+                margin: 0;
+                padding: 0;
+            }
+            h1 {
+                font-size: 3em;
+                text-align: center;
+                margin-top: 50px;
+                font-family: 'Helvetica', 'Arial', sans-serif;
+            }
+
+            h2 {
+                font-size: 2em;
+                text-align: center;
+                margin-top: 75px;
+                font-family: 'Helvetica', 'Arial', sans-serif;
+            }
+
+            h3 {
+                font-size: 1em;
+                text-align: center;
+                margin-top: 100px;
+                font-family: 'Helvetica', 'Arial', sans-serif;
+            }
+            form {
+                text-align: center;
+                margin-top: 50px;
+            }
+            input[type="file"] {
+                margin: 20px;
+                font-size: 1em;
+            }
+            input[type="submit"] {
+                padding: 10px 20px;
+                font-size: 1em;
+                cursor: pointer;
+            }
+            .form-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 50px;
+            }
+        .custom-file-label::after {
+            content: "Browse"; /* Customize the text for the browse button */
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1>Garbage Sorter</h1>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="alert alert-warning" role="alert" style="text-align: center;">
+                    {% for message in messages %}
+                        {{ message }}
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+        <h2>Upload an Image</h2>
+        <div class="form-container">
+            <form action="{{ url_for('views.upload_file') }}" method="POST" enctype="multipart/form-data" class="w-50">
+                <div class="form-group">
+                    <label for="image">Choose Image</label>
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" name="image" id="image" required>
+                        <label class="custom-file-label" for="image">Select image...</label>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block mt-3">Upload Image</button>
+            </form>
+        </div>
+        <!-- Bootstrap JS and dependencies -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script>
+            // Update the label text when a file is selected
+            $(".custom-file-input").on("change", function() {
+                var fileName = $(this).val().split("\\").pop();
+                $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+            });
+        </script>
+
+
+    </body>
+
+</html>

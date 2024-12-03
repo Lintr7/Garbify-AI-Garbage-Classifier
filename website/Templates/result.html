@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Result</title>
+    <style>
+        body {
+            background-color: white;
+            color: black; /* Ensures text is visible on a black background */
+            font-family: 'Arial', sans-serif; /* Choose a clean, readable font */
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            font-size: 3em;
+            text-align: center;
+            margin-top: 50px;
+            font-family: 'Helvetica', 'Arial', sans-serif;
+        }
+
+        h2 {
+            font-size: 2em;
+            text-align: center;
+            margin-top: 75px;
+            font-family: 'Helvetica', 'Arial', sans-serif;
+        }
+
+        h3 {
+            font-size: 1em;
+            text-align: center;
+            margin-top: 100px;
+            font-family: 'Helvetica', 'Arial', sans-serif;
+        }
+        form {
+            text-align: center;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Result</h1>
+    <h2>{{ result }}</h2>
+    <h3><a href="{{ url_for('views.upload_file') }}">Upload another image</a></h3>
+</body>
+</html>
