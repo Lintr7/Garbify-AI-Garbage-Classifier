@@ -40,6 +40,7 @@
 <body>
     <h1>Result</h1>
     <h2>{{ result }}</h2>
-    <h3><a href="{{ url_for('views.upload_file') }}">Upload another image</a></h3>
+    <img src="{{ url_for('views.send_uploaded_file', filename=filename) }}" alt="Uploaded Image" width="300">
+    <a href="{{ url_for('views.upload_file') }}">Upload another image</a>
 </body>
 </html>

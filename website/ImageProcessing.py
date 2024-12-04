@@ -10,6 +10,22 @@ data_dir = '/Users/travis/Garbify/data/Garbage classification/Garbage classifica
 
 
 classes = os.listdir(data_dir)
+
+cardboard = classes[0] #paper
+glass = classes[1] #metal
+metal = classes[2] #cardboard
+paper = classes[3] #trash
+plastic = classes[4] #glass
+trash = classes[5] #plastic
+
+classes[0] = metal
+classes[1] = plastic
+classes[2] = glass
+classes[3] = cardboard
+classes[4] = trash
+classes[5] = paper
+
+
 print("Classes found:", classes)
 
 from torchvision.datasets import ImageFolder
@@ -162,7 +178,7 @@ def fit(epochs, lr, model, train_loader, val_loader, opt_func=torch.optim.SGD):
 
 model = to_device(ResNet(), device)
 
-num_epochs = 7
+num_epochs = 1
 opt_func = torch.optim.Adam
 lr = 1e-4
 
@@ -236,7 +252,6 @@ def predict_external_image(image_name):
 #predict_external_image('newspaper.jpg')
 
 #predict_external_image('plastic_bag.jpg')
-
 
 
 

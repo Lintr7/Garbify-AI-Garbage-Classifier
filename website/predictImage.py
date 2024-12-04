@@ -19,6 +19,19 @@ class ResNet(nn.Module):
     
 data_dir = '/Users/travis/Garbify/data/Garbage classification/Garbage classification'
 classes = os.listdir(data_dir)
+cardboard = classes[0] #paper
+glass = classes[1] #metal
+metal = classes[2] #cardboard
+paper = classes[3] #trash
+plastic = classes[4] #glass
+trash = classes[5] #plastic
+
+classes[0] = metal
+classes[1] = plastic
+classes[2] = glass
+classes[3] = cardboard
+classes[4] = trash
+classes[5] = paper
 model = ResNet(num_classes=len(classes))
 model.load_state_dict(torch.load('model.pth'))
 model.eval()
@@ -37,7 +50,6 @@ def predict_image(filepath):
         yb = model(img)
         _, preds = torch.max(yb, dim=1)
     return classes[preds[0].item()].capitalize()
-
 
 
 
