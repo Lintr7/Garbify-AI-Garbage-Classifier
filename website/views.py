@@ -6,7 +6,7 @@ import os
 
 views = Blueprint('views', __name__)
 
-UPLOAD_FOLDER = 'website/Static/uploads'
+UPLOAD_FOLDER = 'website/uploads'
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
 
 
@@ -34,8 +34,7 @@ def upload_file():
             filepath = os.path.join(current_app.config['UPLOAD_FOLDER'], filename)
             file.save(filepath)
             result = predict_image(filepath)
-            os.remove(filepath)
-            return render_template('result.html', result=result)
+            return render_template('result.html', result=result, filename=filename)
             
         else:
             return render_template('invalidFile.html')

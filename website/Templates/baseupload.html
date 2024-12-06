@@ -6,27 +6,52 @@
         <title>Garbage Sorter</title>
         <!-- Bootstrap CSS -->
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+        
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
         <style>
+            
             body {
-                background-color: white;
-                color: black; /* Ensures text is visible on a black background */
-                font-family: 'Arial', sans-serif; /* Choose a clean, readable font */
-                margin: 0;
-                padding: 0;
+                height: 100%;
+                width: 100%;
+                overflow: hidden;
+
+            }
+            .image {
+                color: white;
             }
             h1 {
+                color: rgb(217, 161, 71);
                 font-size: 3em;
-                text-align: center;
-                margin-top: 50px;
-                font-family: 'Helvetica', 'Arial', sans-serif;
+                font-family: 'Poppins', Times, serif;
+                font-weight: 700;
+                margin-top: 10px;
+                letter-spacing: 1.7px;
+                margin-left: 60px;
+                text-shadow:
+                2px 2px 1.5px black, /* Top-Left Shadow */
+                -2px -2px 1.5px black, /* Bottom-Right Shadow */
+                2px -2px 1.5px black, /* Top-Right Shadow */
+                -2px 2px 1.5px black;
+                
             }
 
             h2 {
-                font-size: 2em;
+                color: rgb(250, 201, 103);
+                font-size: 2.3em;
                 text-align: center;
-                margin-top: 75px;
-                font-family: 'Helvetica', 'Arial', sans-serif;
+                font-weight: 650;
+                margin-top: 85px;
+                font-family: 'Times New Roman', Times, serif;
+                
+                
             }
+            .sub {
+                position: absolute;
+                margin-top: 140px;
+                left: 38%;
+            
+            }
+            
 
             h3 {
                 font-size: 1em;
@@ -52,14 +77,90 @@
             justify-content: center;
             margin-top: 50px;
             }
-        .custom-file-label::after {
+            .custom-file {
+                margin-top: 155px;
+            }
+            .custom-file-label {
+                margin-top: 35px;
+            }
+            .custom-file-label::after {
             content: "Browse"; /* Customize the text for the browse button */
             }
+            .video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            display: none; /* Hide videos by default */
+        }
+
+        .video-background.active {
+            display: block; /* Show active video */
+        }
+            .slider-navigation {
+                z-index: 888;
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                transform: translateY(560px);
+                margin-bottom: 12px;
+            }
+            .slider-navigation .nav-btn {
+                width: 18px;
+                height: 18px;
+                background-color:rgb(249, 238, 217);
+                border-radius: 50%;
+                border: 1px solid black;
+                cursor: pointer;
+                transition: 0.3s ease;
+            }
+
+            .slider-navigation .nav-btn:not(:last-child) {
+                margin-right: 22px;
+            }
+
+            .slider-navigation .nav-btn:hover {
+                transform: scale(1.2);
+            }
+
+            .nav-btn.selected {
+            background-color: rgb(217, 161, 71); /* Highlight active button */
+            }
+            .color {
+                color: rgb(217, 161, 71);
+            }
+           
         </style>
     </head>
 
     <body>
-        <h1>Garbage Sorter</h1>
+        <video class="video-background active" autoplay muted loop>
+            <source src="static/RealRiver.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <video class="video-background" autoplay muted loop>
+            <source src="static/RealOcean.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <video class="video-background" autoplay muted loop>
+            <source src="static/RealCanyon.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <div class="slider-navigation">
+            <div class="nav-btn" data-index="0"></div>
+            <div class="nav-btn" data-index="1"></div>
+            <div class="nav-btn" data-index="2"></div>
+        </div>
+
+     
+
+
+        <h1>GARBIFY</h1>
         {% with messages = get_flashed_messages() %}
             {% if messages %}
                 <div class="alert alert-warning" role="alert" style="text-align: center;">
@@ -69,20 +170,21 @@
                 </div>
             {% endif %}
         {% endwith %}
-        <h2>Upload an Image</h2>
+        <h2 class="sub">Classify your Garbage</h2>
         <div class="form-container">
             <form action="{{ url_for('views.upload_file') }}" method="POST" enctype="multipart/form-data" class="w-50">
                 <div class="form-group">
-                    <label for="image">Choose Image</label>
+                    <label class = "color" for="image"></label>
                     <div class="custom-file">
                         <input type="file" class="custom-file-input" name="image" id="image" required>
-                        <label class="custom-file-label" for="image">Select image...</label>
+                        <label class="custom-file-label" for="image">Select or Drag image...</label>
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary btn-block mt-3">Upload Image</button>
             </form>
         </div>
-        <!-- Bootstrap JS and dependencies -->
+
+        <!--Bootstrap-->
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -92,8 +194,42 @@
                 var fileName = $(this).val().split("\\").pop();
                 $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
             });
-        </script>
 
+
+        const navButtons = document.querySelectorAll('.nav-btn');
+        const videos = document.querySelectorAll('.video-background');
+
+        const defaultButton = navButtons[0];
+        defaultButton.classList.add('selected');
+        videos[0].classList.add('active');
+        
+
+        function updateVideo(button) {
+            const index = button.getAttribute('data-index');
+
+            navButtons.forEach(btn => btn.classList.remove('selected'));
+
+            button.classList.add('selected');
+
+            videos.forEach(video => video.classList.remove('active'));
+
+            videos[index].classList.add('active');
+
+        }
+        
+
+        // Add event listeners for video loop reset
+        videos.forEach(video => {
+            video.addEventListener('ended', () => handleVideoLoop(video));
+        });
+
+        // Add click event listeners to each button
+        navButtons.forEach(button => {
+            button.addEventListener('click', () => updateVideo(button));
+        });
+        
+        </script>
+        
 
     </body>
 

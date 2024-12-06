@@ -26,12 +26,12 @@ paper = classes[3] #trash
 plastic = classes[4] #glass
 trash = classes[5] #plastic
 
-classes[0] = metal
-classes[1] = plastic
-classes[2] = glass
-classes[3] = cardboard
-classes[4] = trash
-classes[5] = paper
+classes[0] = metal + " (Recyclable)"
+classes[1] = plastic + " (Recyclable)"
+classes[2] = glass + " (Recyclable)"
+classes[3] = cardboard + " (Recyclable)"
+classes[4] = trash + " (Recyclable)"
+classes[5] = paper + " (Non-Recyclable)"
 model = ResNet(num_classes=len(classes))
 model.load_state_dict(torch.load('model.pth'))
 model.eval()
