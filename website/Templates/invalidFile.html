@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+    <link href="static/styles2.css" rel="stylesheet">
 <head>
     <meta charset="UTF-8">
     <title>Result</title>
@@ -26,19 +27,140 @@
         }
 
         h3 {
-            font-size: 1em;
+            font-size: 1.8em;
             text-align: center;
-            margin-top: 100px;
+            margin-top: 50px;
             font-family: 'Helvetica', 'Arial', sans-serif;
+            z-index: 999;
+            color: white;
         }
         form {
             text-align: center;
             margin-top: 50px;
         }
+        .message {
+            margin-top: -100px;
+        }
+        
     </style>
 </head>
 <body>
-    <h3>File type is not allowed, try again: </h3>
-    <h3><a href="{{ url_for('views.upload_file') }}">Upload another image</a></h3>
+    <div class="container">
+    <h3 class="message">File type is not allowed, try again: </h3>
+    <h3><a class="text" href="{{ url_for('views.upload_file') }}">Upload another image</a></h3>
+
+   
+    <section class="main">
+
+
+        <div class="absolute cloud_left">
+            <ul class="inline-list">
+              <li class="cloud"></li>
+              <li class="cloud"></li>
+              <li class="cloud"></li>
+            </ul>
+        </div>
+
+        <div class="absolute cloud_right">
+            <ul class="inline-list">
+              <li class="cloud"></li>
+              <li class="cloud"></li>
+              <li class="cloud"></li>
+            </ul>
+        </div>
+
+        <span class="absolute sun"></span>
+
+
+        <div class="absolute landscape left_m">
+
+            <span class="grass gl">
+                <span class="land_tree leftt-gras">
+                    <ul class="inline-list">
+                      <li class="t_grass"></li>
+                      <li class="t_grass"></li>
+                      <li class="t_grass"></li>
+                    </ul>
+                </span>
+            </span>
+
+            <span class="absolute tree1"></span>
+            <span class="absolute tree2"></span>
+        </div>
+
+        <div class="absolute landscape max_right">
+
+            <span class="grass">
+                <span class="land_tree">
+                    <ul class="inline-list">
+                      <li class="t_grass"></li>
+                      <li class="t_grass"></li>
+                      <li class="t_grass"></li>
+                    </ul>
+                </span>
+            </span>
+
+            <div class="mountain">
+                <div class="r-mountain"></div>
+                <ul class="snow inline-list">
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="absolute boat">
+            <ul class="no-bullet">
+                <ul class="no-bullet fume">
+                    <li class="fume4"></li>
+                    <li class="fume3"></li>
+                    <li class="fume2"></li>
+                    <li class="fume1"></li>
+                </ul>
+                <li class="smokestack"></li>
+                <li class="white-body">
+                    <ul class="windows inline-list">
+                        <li class="circle"></li>
+                        <li class="circle"></li>
+                        <li class="circle"></li>
+                    </ul>
+                </li>
+                <li class="boat-body"></li>
+            </ul>
+        </div>
+
+        <div class="absolute dark-back"></div>
+
+        <div class="absolute plane">
+            <ul class="no-bullet">
+                <li class="plane-body">
+                    <ul class="windows inline-list">
+                        <li class="circle"></li>
+                        <li class="circle"></li>
+                        <li class="circle"></li>
+                        <li class="circle"></li>
+                        <li class="circle"></li>
+                    </ul>
+                </li>
+
+                <li class="wing1"></li>
+                <li class="wing1 flipwing"></li>
+                <li class="absolute teal"></li>
+            </ul>
+        </div>
+
+        <div class="absolute sea">
+            <span class="wave1"></span>
+            <span class="wave2"></span>
+            <span class="wave3"></span>
+            <span class="wave4"></span>
+        </div>
+
+    </section>
+</div>
+</div>
+
 </body>
 </html>

@@ -1,0 +1,123 @@
+body {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+
+}
+.image {
+    color: white;
+}
+h1 {
+    color: rgb(217, 161, 71);
+    font-size: 3em;
+    font-family: 'Poppins', Times, serif;
+    font-weight: 700;
+    margin-top: 10px;
+    letter-spacing: 1.7px;
+    margin-left: 60px;
+    text-shadow:
+    2px 2px 1.5px black, /* Top-Left Shadow */
+    -2px -2px 1.5px black, /* Bottom-Right Shadow */
+    2px -2px 1.5px black, /* Top-Right Shadow */
+    -2px 2px 1.5px black;
+    
+}
+
+h2 {
+    color: rgb(250, 201, 103);
+    font-size: 2.3em;
+    text-align: center;
+    font-weight: 650;
+    margin-top: 85px;
+    font-family: 'Times New Roman', Times, serif;
+    
+    
+}
+.sub {
+    position: absolute;
+    margin-top: 140px;
+    left: 38%;
+
+}
+
+
+h3 {
+    font-size: 1em;
+    text-align: center;
+    margin-top: 100px;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+}
+form {
+    text-align: center;
+    margin-top: 50px;
+}
+input[type="file"] {
+    margin: 20px;
+    font-size: 1em;
+}
+input[type="submit"] {
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+}
+.form-container {
+display: flex;
+justify-content: center;
+margin-top: 50px;
+}
+.custom-file {
+    margin-top: 155px;
+}
+.custom-file-label {
+    margin-top: 35px;
+}
+.custom-file-label::after {
+content: "Browse"; /* Customize the text for the browse button */
+}
+.video-background {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+object-fit: cover;
+z-index: -1;
+display: none; /* Hide videos by default */
+}
+
+.video-background.active {
+display: block; /* Show active video */
+}
+.slider-navigation {
+    z-index: 888;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(560px);
+    margin-bottom: 12px;
+}
+.slider-navigation .nav-btn {
+    width: 18px;
+    height: 18px;
+    background-color:rgb(249, 238, 217);
+    border-radius: 50%;
+    border: 1px solid black;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.slider-navigation .nav-btn:not(:last-child) {
+    margin-right: 22px;
+}
+
+.slider-navigation .nav-btn:hover {
+    transform: scale(1.2);
+}
+
+.nav-btn.selected {
+background-color: rgb(217, 161, 71); /* Highlight active button */
+}
+.color {
+    color: rgb(217, 161, 71);
+}
