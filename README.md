@@ -12,6 +12,7 @@ Enter a picture and Garbify will tell you what it is!
 
 
 
-![close](https://github.com/user-attachments/assets/e232efb1-50e3-4071-8423-03845dd93760)
+
+
 
 
