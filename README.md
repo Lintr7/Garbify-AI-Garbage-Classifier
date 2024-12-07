@@ -14,6 +14,3 @@ Enter a picture and Garbify will tell you what it is!
 
 
 
-
-
-
