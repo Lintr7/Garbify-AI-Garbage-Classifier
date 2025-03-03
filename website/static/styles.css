@@ -8,7 +8,7 @@ body {
     color: white;
 }
 h1 {
-    color: rgb(217, 161, 71);
+    color: rgb(220, 161, 65);
     font-size: 3em;
     font-family: 'Poppins', Times, serif;
     font-weight: 700;
@@ -16,15 +16,15 @@ h1 {
     letter-spacing: 1.7px;
     margin-left: 60px;
     text-shadow:
-    2px 2px 1.5px black, /* Top-Left Shadow */
-    -2px -2px 1.5px black, /* Bottom-Right Shadow */
-    2px -2px 1.5px black, /* Top-Right Shadow */
+    2px 2px 1.5px black,
+    -2px -2px 1.5px black,
+    2px -2px 1.5px black, 
     -2px 2px 1.5px black;
     
 }
 
 h2 {
-    color: rgb(250, 201, 103);
+    color: rgb(220, 161, 65);
     font-size: 2.3em;
     text-align: center;
     font-weight: 650;
@@ -72,7 +72,7 @@ margin-top: 50px;
     margin-top: 35px;
 }
 .custom-file-label::after {
-content: "Browse"; /* Customize the text for the browse button */
+content: "Browse"; 
 }
 .video-background {
 position: absolute;
@@ -82,11 +82,11 @@ width: 100%;
 height: 100%;
 object-fit: cover;
 z-index: -1;
-display: none; /* Hide videos by default */
+display: none; 
 }
 
 .video-background.active {
-display: block; /* Show active video */
+display: block;
 }
 .slider-navigation {
     z-index: 888;
@@ -116,7 +116,7 @@ display: block; /* Show active video */
 }
 
 .nav-btn.selected {
-background-color: rgb(217, 161, 71); /* Highlight active button */
+background-color: rgb(217, 161, 71);
 }
 .color {
     color: rgb(217, 161, 71);

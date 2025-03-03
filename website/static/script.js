@@ -10,7 +10,6 @@ const videos = document.querySelectorAll('.video-background');
 const defaultButton = navButtons[0];
 defaultButton.classList.add('selected');
 videos[0].classList.add('active');
-videos[0].play()
 
 
 function updateVideo(button) {
